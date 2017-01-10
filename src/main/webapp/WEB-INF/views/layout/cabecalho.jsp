@@ -44,12 +44,11 @@
 				<ul class="nav navbar-nav pull-right">
 				
 					<li class="liInicio itemMenuSup"><a href="<%=Base_url%>Inicio">Início</a></li>
-					<li class="liQuemSomos itemMenuSup"><a href="<%=Base_url%>QuemSomos">Quem somos</a></li>
+					<li class="liQuemSomos itemMenuSup"><a href="<%=Base_url%>QuemSomos">Quem Somos</a></li>
 					<li class="liServicos itemMenuSup"><a href="<%=Base_url%>Servicos">Serviços</a></li>
-					<li class="liAreaCliente itemMenuSup"><a href="<%=Base_url%>AreaCliente">Área do cliente</a></li>
 					<li class="liContato itemMenuSup"><a href="<%=Base_url%>Contato">Contato</a></li>
 					
-					<li><a class="btn" href="<%=Base_url%>Login">LOGIN / CADASTRO</a></li>
+					<li class="liAreaCliente itemMenuSup"><a class="btn btn-navbarsup" href="<%=Base_url%>AreaCliente">Área do Cliente</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
