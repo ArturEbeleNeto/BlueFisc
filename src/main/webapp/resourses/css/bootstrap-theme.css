@@ -101,7 +101,8 @@
 }
 
 .navbar-nav .btn {
-    border: 1px solid rgba(255, 255, 255, .2);
+    border: 1px solid;
+    border-color: #fff;
     margin-left: 5px;
     margin-top: 5px;
     padding-top: 10px;
@@ -110,7 +111,11 @@
 
 .navbar-nav a.btn:focus,
 .navbar-nav a.btn:hover {
-    border: 1px solid rgba(255, 255, 255, .6);
+    border: 2px solid;
+    margin-left: 3px;
+    margin-top: 5px;
+    padding-top: 9px;
+    padding-bottom: 9px;
 }
 
 .navbar-collapse {
@@ -145,77 +150,14 @@
 
 
 /*******************************/
-
-.btn-default,
-.btn-primary,
-.btn-success,
-.btn-action .btn-info,
-.btn-warning,
-.btn-danger {
-    text-shadow: 0 2px 1px rgba(0, 0, 0, .2);
+/*Código para corrigir irregularidade no botão toggle das tabelas*/
+button[name="toggle"] i {
+	height: 20px;
+	padding-top: 2px;
 }
-
-.btn {
-    padding: 10px 40px;
-    font-weight: bold;
-    border: 0 none;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-}
-
-.btn-lg {
-    padding: 15px 65px;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.btn-default {
-    text-shadow: none;
-    background: transparent;
-    color: rgba(50, 50, 50, .5);
-    -webkit-box-shadow: inset 0px 0px 0px 3px rgba(50, 50, 50, .5);
-    -moz-box-shadow: inset 0px 0px 0px 3px rgba(50, 50, 50, .5);
-    box-shadow: inset 0px 0px 0px 3px rgba(50, 50, 50, .5);
-}
-
-.btn-default:hover,
-.btn-default:focus {
-    color: rgba(50, 50, 50, .8);
-    -webkit-box-shadow: inset 0px 0px 0px 3px rgba(50, 50, 50, .8);
-    -moz-box-shadow: inset 0px 0px 0px 3px rgba(50, 50, 50, .8);
-    box-shadow: inset 0px 0px 0px 3px rgba(50, 50, 50, .8);
-    background: transparent;
-}
-
-.btn-default:active,
-.btn-default.active {
-    color: #333;
-    -webkit-box-shadow: inset 0px 0px 0px 3px #333;
-    -moz-box-shadow: inset 0px 0px 0px 3px #333;
-    box-shadow: inset 0px 0px 0px 3px #333;
-    background: transparent;
-}
-
-.btn-action,
-.btn-primary {
-    color: #FFEFD7;
-    background-image: -webkit-linear-gradient(top, #FF9B22 0%, #FF8C00 100%);
-    background-image: linear-gradient(to bottom, #FF9B22 0%, #FF8C00 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ffFF9B22', endColorstr='#ffFF8C00', GradientType=0);
-    filter: progid: DXImageTransform.Microsoft.gradient(enabled=false);
-    background-repeat: repeat-x;
-    border: 0 none;
-}
-
-.btn-action:hover,
-.btn-action:focus {
-    color: #fff;
-    background: #FF9B22;
-}
-
-.btn-action:active {
-    background: #FF8C00;
+.group-btn-pequeno{
+	height:20px;
+	padding-top: 2px;	
 }
 
 

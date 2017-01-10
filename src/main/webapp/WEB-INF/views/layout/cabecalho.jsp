@@ -28,6 +28,8 @@
 	<script src="<%=Base_url%>resourses/js/html5shiv.js"></script>
 	<script src="<%=Base_url%>resourses/js/respond.min.js"></script>
 	<![endif]-->
+	
+	<link rel="stylesheet" href="<%=Base_url%>resourses/css/bootstrap-table.min.css">
 </head>
 
 <body class="home">

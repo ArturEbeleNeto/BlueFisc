@@ -13,4 +13,10 @@ jQuery(document).ready(function($) {
 	var liActive = $('liActive').attr('val')
 	$('.li'+liActive).addClass('active')
 	
+	$('#tabConsultas').bootstrapTable()
+	
+	$('.celula').on('click', function(e){
+		window.open($(this).attr	('href'))
+	})
+	
 });

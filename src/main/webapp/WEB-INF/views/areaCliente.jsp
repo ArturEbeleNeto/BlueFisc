@@ -14,7 +14,7 @@
 		<div class="row">
 			
 			
-<p class="text" style="font-size: 20px;background-color:;  margin-top: 60px">Categorias:</p>
+<p class="text" style="font-size: 20px;background-color:;  margin-top: 30px">Áreas:</p>
 
 <div class="row">
 	<div class="col-lg-12 col-md-12 col-sm-12" >
@@ -59,7 +59,6 @@
 			<span class=glyphicon-class>Programar Administrações</span>
 		</div>
 			
-		<c:if test="${tipoUsuario == 'ADMINISTRADOR'}">
 			<div class="celula col-lg-2 col-md-4 col-sm-6 col-xs-12" href="<%=Base_url%>Parcela/Consulta">
 				<span class="glyphicon glyphicon-search" aria-hidden=true></span>
 				<span class=glyphicon-class>Consultar Parcelas</span>
@@ -69,7 +68,6 @@
 				<span class="glyphicon glyphicon-usd" aria-hidden=true></span>
 				<span class=glyphicon-class>Gerar Parcelas</span>
 			</div>
-		</c:if>
 		
 		<div class="celula col-lg-2 col-md-4 col-sm-6 col-xs-12" href="<%=Base_url%>Usuario/AlterarSenha">
 			<span class="glyphicon glyphicon-refresh" aria-hidden=true></span>
@@ -84,6 +82,68 @@
 	</div>
 </div>
 			
+			
+			
+			
+			
+<div class="row">
+	<div class="col-md-12 column">
+	
+		<p class="text" style="font-size: 20px;  margin-top: 50px">Consultas:</p>
+	
+		<div class="form-inline" id="toolbar">
+			<form:form id="frmConsultaIdosos" servletRelativeAction="/Idoso/Filtrar" commandName="consultaIdoso" method="post">
+				<label for="txtSituacao">Situação:</label>
+				<select class="form-control" name="situacao" id="txtSituacao">
+					<option value="ES">Não respondidas</option>
+					<option value="AV">Respondidas</option>
+					<option selected value="IN">Todas</option>
+				</select>
+			</form:form>
+		</div>
+
+	
+		<table class="table table-striped table-hover" id="tabConsultas" 
+			data-height="470"
+			data-search="true"
+			data-toolbar="#toolbar"
+			data-show-toggle="true"
+			data-show-columns="true"
+			data-show-export="true"                       
+			data-pagination="true">                  			
+			<thead>
+				<tr>
+					<th data-field="idIdoso">
+						Código
+					</th>
+					<th data-field="nome">
+						Nome
+					</th>
+					<th data-field="sobrenome">
+						Sobre Nome
+					</th>
+					<th data-field="dataNascimento" data-formatter="FormataData">
+						Data Nascimento
+					</th>
+					<th data-field="idade">
+						Idade	
+					</th>
+					<th data-field="numeroCpf">
+						CPF
+					</th>
+					<th data-field="numeroRg">
+						RG
+					</th>
+					<th data-formatter="ExibeOpcoes">
+						Ações
+					</th>						
+				</tr>
+			</thead>
+                    			
+		</table>
+		
+	</div> <!-- Coluna 12 -->           
+</div><!-- Row -->			
 			
 
 		</div>

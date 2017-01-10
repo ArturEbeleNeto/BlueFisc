@@ -77,8 +77,13 @@
 	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	
 	<script src="<%=Base_url2%>resourses/js/headroom.min.js"></script>
 	<script src="<%=Base_url2%>resourses/js/jQuery.headroom.min.js"></script>
 	<script src="<%=Base_url2%>resourses/js/template.js"></script>
+	
+	<script src="<%=Base_url2%>resourses/js/bootstrap-table.min.js"></script>
+	<script src="<%=Base_url2%>resourses/js/bootstrap-table-pt-BR.min.js"></script>
+	<script src="<%=Base_url2%>resourses/js/bootstrap-table-export.js"></script>
 </body>
 </html>
