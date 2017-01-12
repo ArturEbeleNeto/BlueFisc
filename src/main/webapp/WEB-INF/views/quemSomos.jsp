@@ -15,9 +15,11 @@
 			
 			<!-- Article main content -->
 			<article class="col-sm-8 maincontent">
+			
 				<header class="page-header">
 					<h1 class="page-title">Quem somos</h1>
 				</header>
+				
 				<h3>Lorem ipsum</h3>
 				<p><img src="<%=Base_url%>resourses/images/mac.jpg" alt="" class="img-rounded pull-right" width="300" > Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, consequuntur eius repellendus eos aliquid molestiae ea laborum ex quibusdam laudantium voluptates placeat consectetur quam aliquam beatae soluta accusantium iusto nihil nesciunt unde veniam magnam repudiandae sapiente.</p>
 				<p>Quos, aliquam nam velit impedit minus tenetur beatae voluptas facere sint pariatur! Voluptatibus, quisquam, error, est assumenda corporis inventore illo nesciunt iure aut dolor possimus repellat minima veniam alias eius!</p>
