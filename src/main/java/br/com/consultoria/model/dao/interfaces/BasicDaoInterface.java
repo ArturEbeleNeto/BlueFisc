@@ -14,6 +14,4 @@ public interface BasicDaoInterface<T>{
 
 	public void delete(T entity);
 	
-	public void saveOrUpdate(T entity);
-
 }

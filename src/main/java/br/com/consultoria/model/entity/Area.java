@@ -23,20 +23,27 @@ public class Area extends BaseEntity {
 	@Column(length=50,nullable=false)
 	private String descricao;
 
-	public Area(){};
+	@NotEmpty
+	private String caminhoIcone;
 	
-	public Area(Integer idArea, String descricao) {
+	public Area(){};	
+	public Area(Integer idArea, String descricao, String caminhoIcone) {
 		super();
 		this.idArea = idArea;
 		this.descricao = descricao;
+		this.setCaminhoIcone(caminhoIcone);
 	}
 	
+	
+	@Override
+	public Integer getId() {
+		return this.idArea;
+	}
 	
 
 	public Integer getIdArea() {
 		return idArea;
 	}
-
 	public void setIdArea(Integer idArea) {
 		this.idArea = idArea;
 	}
@@ -44,13 +51,14 @@ public class Area extends BaseEntity {
 	public String getDescricao() {
 		return descricao;
 	}
-
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-
-	@Override
-	public Integer getId() {
-		return this.idArea;
+	
+	public String getCaminhoIcone() {
+		return caminhoIcone;
+	}
+	public void setCaminhoIcone(String caminhoIcone) {
+		this.caminhoIcone = caminhoIcone;
 	}
 }

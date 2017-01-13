@@ -15,7 +15,7 @@ import br.com.consultoria.model.entity.BaseEntity;
 @SuppressWarnings("unchecked")
 @Repository
 @Transactional
-public abstract class BasicDao<T, PK> implements BasicDaoInterface<T>{
+public abstract class BasicDao<T> implements BasicDaoInterface<T>{
 
 	@PersistenceContext
 	protected EntityManager entityManager;
@@ -33,7 +33,7 @@ public abstract class BasicDao<T, PK> implements BasicDaoInterface<T>{
 				.getResultList();
 	}
 
-	public T findById(PK pk) {
+	public T findById(Integer pk) {
 		if (pk == null){
 			return null;
 		}else{
@@ -57,7 +57,7 @@ public abstract class BasicDao<T, PK> implements BasicDaoInterface<T>{
 	
 	public void saveOrUpdate(T entity){
 		BaseEntity baseBean = (BaseEntity) entity;
-		if(findById((PK)baseBean.getId()) == null){		
+		if(findById((Integer)baseBean.getId()) == null){		
 			save(entity);
 		}else{		
 			update(entity);

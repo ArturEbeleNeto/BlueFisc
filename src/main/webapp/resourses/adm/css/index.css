@@ -1,0 +1,40 @@
+body {
+	position: relative
+}
+
+.celula{
+	float: left;
+	height: 115px;
+	padding: 10px;
+	font-size: 10px;
+	line-height: 1.4;
+	text-align: center;
+	background-color: #f0f0f0;
+	border: 1px solid #fff;
+	font-weight:300;
+	font-size: 1.25em;    
+}
+
+.celula:hover {
+	color: #fff;
+	background-color: #563d7c;
+	cursor: pointer;
+}
+
+.celula .glyphicon {
+	margin-top: 5px;
+	margin-bottom: 10px;
+	font-size: 25px
+}
+
+.celula .glyphicon-class {
+	display: block;
+	text-align: center;              
+	word-wrap: break-word;     
+}
+
+.celula li:hover {
+	color: #fff;
+	background-color: #563d7c;
+	cursor: pointer;
+}

@@ -15,43 +15,43 @@ public class SiteController {
 	
 	@RequestMapping("/Inicio")
 	public ModelAndView inicio(){
-		ModelAndView mv = new ModelAndView("index");
+		ModelAndView mv = new ModelAndView("site/index");
 		return mv;
 	}
 	
 	@RequestMapping("/QuemSomos")
 	public ModelAndView quemSomos(){
-		ModelAndView mv = new ModelAndView("quemSomos");
+		ModelAndView mv = new ModelAndView("site/quemSomos");
 		return mv;
 	}	
 	
 	@RequestMapping("/Servicos")
 	public ModelAndView servicos(){
-		ModelAndView mv = new ModelAndView("servicos");
+		ModelAndView mv = new ModelAndView("site/servicos");
 		return mv;
 	}
 	
 	@RequestMapping("/AreaCliente")
 	public ModelAndView areaCliente(){
-		ModelAndView mv = new ModelAndView("areaCliente");
+		ModelAndView mv = new ModelAndView("site/areaCliente");
 		return mv;
 	}
 	
 	@RequestMapping("/Contato")
 	public ModelAndView contato(){
-		ModelAndView mv = new ModelAndView("contato");
+		ModelAndView mv = new ModelAndView("site/contato");
 		return mv;
 	}				
 	
 	@RequestMapping("/Login")
 	public ModelAndView login(){
-		ModelAndView mv = new ModelAndView("login");
+		ModelAndView mv = new ModelAndView("site/login");
 		return mv;
 	}	
 	
 	@RequestMapping("/Cadastro")
 	public ModelAndView cadastro(){
-		ModelAndView mv = new ModelAndView("cadastro");
+		ModelAndView mv = new ModelAndView("site/cadastro");
 		return mv;
 	}		
 }

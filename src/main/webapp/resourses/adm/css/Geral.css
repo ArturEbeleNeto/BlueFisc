@@ -1,0 +1,76 @@
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+}
+
+
+/*
+ * Global add-ons
+ */
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+  border: 0;
+}
+
+
+
+/*Código para corrigir irregularidade no botão toggle das tabelas*/
+button[name="toggle"] i {
+	height: 20px;
+	padding-top: 2px;
+}
+.group-btn-pequeno{
+	height:20px;
+	padding-top: 2px;	
+}
+
+/*Rodapé de botões dos forms*/
+#divBotoesForm {
+    margin-top: 20px;    
+    background-color: #f3f3f3;
+    line-height: 1.42857143;
+    border-color: #e7e7e7;
+    border-width: 1px;
+    border-style: solid;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#divBotoesFicha {
+    padding-top: 10px;
+}
+
+
+.descricaoPesqEntidade{
+	width: 85%;
+}
+
+
+.div-error{
+	color: red;
+}
+
+.tab-pane {
+    padding-top: 15px;
+}
+
+.glyphicon:HOVER {
+	cursor: pointer;
+}
+
+#footerItemFichaMedicamento{
+	padding-top: 5px;
+}

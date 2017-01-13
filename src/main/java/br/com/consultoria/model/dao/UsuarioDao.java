@@ -10,13 +10,12 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 
-import br.com.consultoria.model.dao.interfaces.BasicDaoInterface;
 import br.com.consultoria.model.dao.interfaces.UsuarioDaoInterface;
 import br.com.consultoria.model.entity.Usuario;
 
 @Repository
 @Transactional
-public class UsuarioDao extends BasicDao<Usuario, Integer> implements UserDetailsService, BasicDaoInterface<Usuario>, UsuarioDaoInterface{
+public class UsuarioDao extends BasicDao<Usuario> implements UserDetailsService, UsuarioDaoInterface{
 
 	@Override
 	public Usuario loadUserByUsername(String usuario) throws UsernameNotFoundException {
