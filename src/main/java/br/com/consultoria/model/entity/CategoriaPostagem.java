@@ -10,14 +10,14 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name = "area")
-public class Area extends BaseEntity {
+@Table(name = "categoriaPostagem")
+public class CategoriaPostagem extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
-	private Integer idArea;
+	private Integer idCategoriaPostagem;
 
 	@NotEmpty
 	@Column(length=50,nullable=false)
@@ -25,10 +25,10 @@ public class Area extends BaseEntity {
 
 	private String caminhoIcone;
 	
-	public Area(){};	
-	public Area(Integer idArea, String descricao, String caminhoIcone) {
+	public CategoriaPostagem(){};	
+	public CategoriaPostagem(Integer idCategoriaPostagem, String descricao, String caminhoIcone) {
 		super();
-		this.idArea = idArea;
+		this.idCategoriaPostagem = idCategoriaPostagem;
 		this.descricao = descricao;
 		this.setCaminhoIcone(caminhoIcone);
 	}
@@ -36,15 +36,15 @@ public class Area extends BaseEntity {
 	
 	@Override
 	public Integer getId() {
-		return this.idArea;
+		return this.idCategoriaPostagem;
 	}
 	
 
-	public Integer getIdArea() {
-		return idArea;
+	public Integer getIdCategoriaPostagem() {
+		return idCategoriaPostagem;
 	}
-	public void setIdArea(Integer idArea) {
-		this.idArea = idArea;
+	public void setIdCategoriaPostagem(Integer idCategoriaPostagem) {
+		this.idCategoriaPostagem = idCategoriaPostagem;
 	}
 
 	public String getDescricao() {

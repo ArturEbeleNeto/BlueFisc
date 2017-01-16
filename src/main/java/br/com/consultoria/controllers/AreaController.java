@@ -28,7 +28,7 @@ public class AreaController {
 	@Autowired
 	private MessageSource messageSource;	
 	
-	private String controller = "area";
+	private String controller = "adm/area";
 	
 	
 	@RequestMapping("/Consulta")
@@ -52,9 +52,10 @@ public class AreaController {
 	
 		  
 	@RequestMapping("/Form/Processar")
-	public String Incluir(@Valid Area area,BindingResult result, Boolean formApresentacao,Model model){
+	public String Incluir(@Valid Area area,BindingResult result, Boolean goSubForm,Model model){
 						
-		if(result.hasErrors()) {					   
+		if(result.hasErrors()) {
+			System.out.println("Tem erro " + result.getAllErrors());
 		    model.addAttribute("area", area);
 		    return controller+"/FormArea";
 	  	}				
@@ -66,21 +67,14 @@ public class AreaController {
 		}				
 		
 		String retorno = "";
-		if(formApresentacao == null){
-			retorno = "redirect:/Area/Consulta";			
+		if(goSubForm == null){
+			retorno = "redirect:/Adm/Area/Consulta";			
 		}else{
-			retorno = "redirect:/Apresentacao/Form/" + area.getIdArea();
+			retorno = "redirect:/Adm/Apresentacao/Form/" + area.getIdArea();
 		}
-		
+
 		return retorno;			
 	}
-	
-	
-	@RequestMapping("/Cancelar/")
-	public String Cancelar2(){
-		return "redirect:/Area/Consulta";
-	}
-		
 	
  	@RequestMapping("/Excluir/{idEntity}")
 	@ResponseBody

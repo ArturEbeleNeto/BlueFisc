@@ -1,7 +1,10 @@
 var BASE_URL = window.location.protocol + '//' + window.location.host + '/';
 var paths = window.location.pathname.split("/")
-if (paths[1] == 'Silpi'){
-	BASE_URL = BASE_URL + 'Silpi/'
+if (paths[1] == 'Consultoria'){
+	BASE_URL = BASE_URL + 'Consultoria/'
+}
+if (paths[2] == 'Adm'){
+	BASE_URL = BASE_URL + 'Adm/'
 }
 
 function calculaIdade(nascimento) {
