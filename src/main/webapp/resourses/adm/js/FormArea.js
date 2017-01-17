@@ -1,8 +1,8 @@
 function ExibeOpcoesCategoriaPostagem(value, row) {       
     Texto = ''
-    Texto = '<a href="'+BASE_URL+'Adm/CategoriaPostagem/Form/'+row.idArea +'/'+row.idCategoriaPostagem+'"><span class="glyphicon glyphicon-pencil"></span></a>'
+    Texto = '<a href="'+BASE_URL+'CategoriaPostagemArea/Form/'+row.area.idArea +'/'+row.idCategoriaPostagemArea+'"><span class="glyphicon glyphicon-pencil"></span></a>'
     Texto+= ' '  
-    Texto+= '<a><span idEntity="'+row.idCategoriaPostagem+'" nameEntity="CategoriaPostagem" class="lnkExcluirRegistro glyphicon glyphicon-remove"></span></a>' 
+    Texto+= '<a><span idEntity="'+row.idCategoriaPostagemArea+'" nameEntity="CategoriaPostagemArea" class="lnkExcluirRegistro glyphicon glyphicon-remove"></span></a>' 
     return Texto
 }
 
@@ -18,21 +18,21 @@ $(function(){
 	
 	$('#btnCancelarAlteracoes').on('click', function(e){
 		e.preventDefault()
-		if(confirm('Tem certeza que deseja cancelar pooora ?')){
+		if(confirm('Tem certeza que deseja cancelar ?')){
 			window.location.replace(BASE_URL + "Area/Consulta")
 		}
 	})
 	
 	
 	if(idArea > 0){
-		$("#tabConsultaCategoriaPostagens").bootstrapTable({		
-			url: BASE_URL + "CategoriaPostagem/Listar/" + idArea		
+		$("#tabConsultaCategoriaPostagemAreas").bootstrapTable({		
+			url: BASE_URL + "CategoriaPostagemArea/ListarPorArea/" + idArea		
 		})	
 		$("#tabConsultaAplicativos").bootstrapTable({		
 			url: BASE_URL + "CategoriaPostagem/Listar/" + idArea		
 		})			
 	}else{
-		$("#tabConsultaCategoriaPostagens").bootstrapTable()		 
+		$("#tabConsultaCategoriaPostagemAreas").bootstrapTable()		 
 		$("#tabConsultaAplicativos").bootstrapTable()	
 	}
 			

@@ -44,7 +44,7 @@
 					</ul>
 				</blockquote>
 				
-				<h3>Consultoria Tributária Eletrônica</h3>
+				<h3>BlueFisc Tributária Eletrônica</h3>
 				
 Acesso disponível as seguintes áreas:
 - SIMPLES NACIONAL;
@@ -63,9 +63,9 @@ Conteúdos (Todos os conteúdos são pertinentes apenas às áreas disponíveis no pac
 
 - E-mails com as últimas notícias fiscais.
 
-Consultoria:
-- Consultoria Eletrônica via Área do Cliente (30 consultas mensais);
-- Consultoria Via Whatsapp (20 consultas mensais).
+BlueFisc:
+- BlueFisc Eletrônica via Área do Cliente (30 consultas mensais);
+- BlueFisc Via Whatsapp (20 consultas mensais).
 				
 				
 				

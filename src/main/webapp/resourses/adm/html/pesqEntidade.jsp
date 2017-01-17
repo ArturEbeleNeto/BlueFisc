@@ -33,4 +33,4 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-<script src="<%=request.getContextPath()%>/resourses/js/plugins/pesqEntidade.js"></script>
+<script src="<%=request.getContextPath()%>/resourses/adm/js/plugins/pesqEntidade.js"></script>

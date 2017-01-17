@@ -32,7 +32,7 @@
 		            </div>
 		        </div>
 			
-				<table class="table table-striped table-hover" id="tabConsultaCategoriaPostagens" 			
+				<table class="table table-striped table-hover" id="tabConsultaCategoriaPostagemAreas" 			
 					data-search="true"
 					data-toolbar="#toolbar"
 					data-show-toggle="true"
@@ -41,14 +41,14 @@
 					data-pagination="true">                    			
 					<thead>
 						<tr>
-							<th data-field="idCategoriaPostagem">
-								id
+							<th data-field="categoriaPostagem.idCategoriaPostagem">
+								id Categoria
 							</th>
-							<th data-field="descricao">
+							<th data-field="categoriaPostagem.descricao">
 								Descrição
 							</th>					
 						
-							<th data-formatter="ExibeOpcoes">
+							<th data-formatter="ExibeOpcoesCategoriaPostagem">
 								Ações
 							</th>						
 						</tr>
@@ -64,7 +64,7 @@
 				</div>			
 				<div id="idTotalLinhas" class="clearfix"></div>				
 				
-				<a href="<% out.println(request.getContextPath()); %>Adm/CategoriaPostagem/Form/"${area.idArea}>
+				<a href="<% out.println(request.getContextPath()); %>Adm/CategoriaPostagemArea/Form/"${area.idArea}>
 					<button class="btn btn-primary btnSubForm">
 						<span class="glyphicon glyphicon-plus"></span> Adicionar Novo
 					</button>
