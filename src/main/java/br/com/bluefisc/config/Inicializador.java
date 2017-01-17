@@ -11,7 +11,7 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 
 public class Inicializador extends AbstractAnnotationConfigDispatcherServletInitializer {
 
-	@Override
+	@Override   
 	protected Class<?>[] getRootConfigClasses() { 
 		return new Class[] {SecurityConfiguration.class, SpringConfiguration.class, JpaConfiguration.class};
 	}
