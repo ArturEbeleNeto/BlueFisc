@@ -149,8 +149,8 @@ $(function(){
             		if (e.seSucesso == '1'){
             			
             			//Gamby
-            			if(nomeEntity == 'Apresentacao'){
-            				nomeEntity = 'Apresentacoe'
+            			if(nomeEntity == 'Postagem'){
+            				nomeEntity = 'Postagen'
             			}
             			     
             			$('#tabConsulta'+nomeEntity+'s').bootstrapTable('refresh')

@@ -4,12 +4,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.bluefisc.model.dao.interfaces.AreaDaoInterface;
 import br.com.bluefisc.model.entity.Area;
 import br.com.bluefisc.services.interfaces.AreaServiceInterface;
 
 @Service
+@Transactional
 public class AreaService implements AreaServiceInterface {
 
 	@Autowired

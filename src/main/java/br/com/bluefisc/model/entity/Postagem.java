@@ -1,16 +1,24 @@
 package br.com.bluefisc.model.entity;
 
+import java.util.Calendar;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
-@Entity
-@Table(name = "postagem")
+import br.com.bluefisc.model.entity.BaseEntity;
+import br.com.bluefisc.model.entity.Usuario;
+
+@Entity  
+@Table(name = "postagem") 
 public class Postagem extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
@@ -30,23 +38,30 @@ public class Postagem extends BaseEntity {
 	private String caminhoImagem;
 	
 	@NotEmpty
-	@Column(length=20000,nullable=false)
+	@Column(columnDefinition="TEXT NOT NULL")
 	private String textoFormatado;
 	
-	@NotEmpty
-	@Column(length=20000,nullable=false)
+	@Column(columnDefinition="TEXT NOT NULL")
 	private String textoLimpo;
 			
+	@ManyToOne
+	@JoinColumn(name="idUsuario", referencedColumnName="idUsuario")
+	private Usuario usuario;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")	
+	private Calendar dataPublicacao;
 	
 	public Postagem(){};
 	public Postagem(Integer idPostagem, String titulo, String subTitulo, String caminhoImagem, String textoFormatado,
-			String textoLimpo) {
+			String textoLimpo, Usuario usuario, Calendar dataPublicacao) {
 		this.idPostagem = idPostagem;
 		this.titulo = titulo;
 		this.subTitulo = subTitulo;
 		this.caminhoImagem = caminhoImagem;
 		this.textoFormatado = textoFormatado;
 		this.textoLimpo = textoLimpo;
+		this.usuario = usuario;
+		this.dataPublicacao = dataPublicacao;
 	}
 
 
@@ -89,5 +104,17 @@ public class Postagem extends BaseEntity {
 	}
 	public void setTextoLimpo(String textoLimpo) {
 		this.textoLimpo = textoLimpo;
+	}
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	public Calendar getDataPublicacao() {
+		return dataPublicacao;
+	}
+	public void setDataPublicacao(Calendar dataPublicacao) {
+		this.dataPublicacao = dataPublicacao;
 	}
 }

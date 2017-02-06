@@ -43,12 +43,6 @@ public class SiteController {
 		return mv;
 	}				
 	
-	@RequestMapping("/Login")
-	public ModelAndView login(){
-		ModelAndView mv = new ModelAndView("site/login");
-		return mv;
-	}	
-	
 	@RequestMapping("/Cadastro")
 	public ModelAndView cadastro(){
 		ModelAndView mv = new ModelAndView("site/cadastro");

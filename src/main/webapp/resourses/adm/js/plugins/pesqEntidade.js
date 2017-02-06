@@ -74,7 +74,5 @@ $(function(){
     		$('.descricaoPesqEntidade[idPesqEntidade = "'+$(this).attr('idPesqEntidade')+'"]').html('')
     	}
     })	
-    
-    $('.idPesqEntidade').trigger('blur')
 	
 })

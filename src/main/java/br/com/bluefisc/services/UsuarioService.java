@@ -2,14 +2,21 @@ package br.com.bluefisc.services;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.bluefisc.model.dao.interfaces.UsuarioDaoInterface;
 import br.com.bluefisc.model.entity.Usuario;
 import br.com.bluefisc.services.interfaces.UsuarioServiceInterface;
 
-public class UsuarioService implements UsuarioServiceInterface {
+@Service
+@Transactional
+public class UsuarioService implements UsuarioServiceInterface, UserDetailsService {
 
+	@Autowired
 	private UsuarioDaoInterface usuarioDao;
 	
 	@Override

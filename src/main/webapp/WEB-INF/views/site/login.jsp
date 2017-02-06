@@ -26,14 +26,28 @@
 							<p class="text-center text-muted">Lorem ipsum dolor sit amet, <a href="<%=Base_url%>Cadastro">Cadastro</a> adipisicing elit. Quo nulla quibusdam cum doloremque incidunt nemo sunt a tenetur omnis odio. </p>
 							<hr>
 							
-							<form>
+							<form:form servletRelativeAction="/login" method="post" class="form-login">
+										
+								<c:if test="${param.error != null}">
+									<div id="divErros" class="div-error">
+					                    Usuário e senha inválidos.
+					                </div>
+				                </c:if>
+				                <c:if test="${param.logout != null}">
+					                <div id="divErros" class="div-error"> 
+					                    Logout realizado
+					                </div>						
+				                </c:if>							
+							
 								<div class="top-margin">
-									<label>Username/Email <span class="text-danger">*</span></label>
-									<input type="text" class="form-control">
+							    	<label for="usuario">Usuário</label>
+							    	<input type="text" value="${usuario.usuario}" class="form-control" name="username" id="usuario">
+							    	<span class="help-block"><form:errors path="usuario.usuario" /></span>
 								</div>
 								<div class="top-margin">
-									<label>Password <span class="text-danger">*</span></label>
-									<input type="password" class="form-control">
+							    	<label for="senha">Senha</label>
+							    	<input type="password" value="${usuario.senha}" class="form-control" name="password">
+							    	<span class="help-block"><form:errors path="usuario.senha" /></span>
 								</div>
 
 								<hr>
@@ -46,7 +60,7 @@
 										<button class="btn btn-action" type="submit">Sign in</button>
 									</div>
 								</div>
-							</form>
+							</form:form>
 						</div>
 					</div>
 

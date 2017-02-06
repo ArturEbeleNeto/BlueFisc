@@ -4,12 +4,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.bluefisc.model.dao.interfaces.CategoriaPostagemDaoInterface;
 import br.com.bluefisc.model.entity.CategoriaPostagem;
 import br.com.bluefisc.services.interfaces.CategoriaPostagemServiceInterface;
 
 @Service
+@Transactional
 public class CategoriaPostagemService implements CategoriaPostagemServiceInterface {
 
 	@Autowired

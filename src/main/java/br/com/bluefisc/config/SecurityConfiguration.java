@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.csrf.CsrfFilter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.filter.CharacterEncodingFilter;
 
 
@@ -24,8 +25,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	     filter.setEncoding("UTF-8");
 	     filter.setForceEncoding(true);
 	     http.addFilterBefore(filter,CsrfFilter.class);		
-		
-	     http.authorizeRequests().anyRequest().permitAll();
+
+			http
+			.authorizeRequests()
+			.antMatchers("/Adm/**").authenticated()
+			.antMatchers("/resourses/**").permitAll()
+			.anyRequest().permitAll()
+		    .and().formLogin().loginPage("/login").permitAll()
+		    .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll();	     
 	}
 	
 	@Override

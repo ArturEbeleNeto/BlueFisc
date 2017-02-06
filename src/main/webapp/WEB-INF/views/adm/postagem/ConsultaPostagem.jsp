@@ -10,18 +10,18 @@
 			<div class="row">
 										
 				<div class="form-group col-lg-6 col-md-6">
-					<label for="basic-url">Idoso:</label>
+					<label for="basic-url">Área:</label>
 					<div class="input-group">				  
-					  <input autofocus="autofocus" class="form-control idPesqEntidade" idPesqEntidade="Idoso" nomeEntidade="Idoso" aria-describedby="basic-addon3" id="idIdoso">				  
-					  <span class="input-group-addon descricaoPesqEntidade" idPesqEntidade="Idoso" nomeEntidade="Idoso"></span>				  		
+					  <input autofocus="autofocus" class="form-control idPesqEntidade" idPesqEntidade="Area" nomeEntidade="Area" aria-describedby="basic-addon3" id="idArea">				  
+					  <span class="input-group-addon descricaoPesqEntidade" idPesqEntidade="Area" nomeEntidade="Area"></span>				  		
 					</div>		
 				</div>							
 							
 				<div class="form-group col-lg-6 col-md-6">
-					<label for="basic-url">Medicamento:</label>
+					<label for="basic-url">Categoria:</label>
 					<div class="input-group">				  
-					  <input class="form-control idPesqEntidade" idPesqEntidade="Medicamento" nomeEntidade="Medicamento" aria-describedby="basic-addon3" id="idMedicamento">				  
-					  <span class="input-group-addon descricaoPesqEntidade" idPesqEntidade="Medicamento" nomeEntidade="Medicamento"></span>				  		
+					  <input class="form-control idPesqEntidade" idPesqEntidade="CategoriaPostagem" nomeEntidade="CategoriaPostagem" aria-describedby="basic-addon3" id="idCategoriaPostagem">				  
+					  <span class="input-group-addon descricaoPesqEntidade" idPesqEntidade="CategoriaPostagem" nomeEntidade="CategoriaPostagem"></span>	
 					</div>		
 				</div>							
 			</div>		
@@ -43,25 +43,22 @@
 <div class="row">
 	<div class="col-md-12">
 		    		
-		<table id="tabEstoque" class="table table-hover"> 						                  
+		<table id="tabPostagem" class="table table-hover"> 						                  
 			<thead>
 				<tr>
-					<th class="hidden" data-field="idEstoqueMedicamento">ID</th>
+					<th class="hidden" data-field="idPostagem">ID</th>
 								
-					<th data-field="idoso.nome" data-valign="middle">
-						Nome
+					<th data-field="titulo">
+						Título
 					</th>					
-					<th data-field="apresentacao.medicamento.descricaoComercial">
-						Medicamento
+					<th data-field="subTitulo">
+						Subtítulo
 					</th>
-					<th data-field="apresentacao.descricao">
-						Apresentação
+					<th data-field="usuario.nome">
+						Autor
 					</th>
-					<th data-field="quantidadeAdministracao">
-						Qtde estoque
-					</th>
-					<th data-field="apresentacao.unidadeMedidaAdministracao.descricao">
-						Unidade de estoque
+					<th data-field="dataPublicacao" data-formatter="FormataData">
+						Data Publicação
 					</th>
 					<th data-formatter="ExibeOpcoes">
 						Opções
@@ -80,21 +77,11 @@
      
 <div class="row">        
     <div class="col-md-12 col-lg-12" id="divBotoesForm">            
-        <button id="btnMovimentarEstoque" type="submit" class="btn btn-primary">
-        	<span class="glyphicon glyphicon-plus"></span>  Novo lançamento
+        <button id="btnAdicionarPostagem" type="submit" class="btn btn-primary">
+        	<span class="glyphicon glyphicon-plus"></span>  Nova Postagem
         </button>
     </div>	  
 </div>  <!-- Row botões -->     
-
-<div class="row" hidden="">        
-	<div class="col-md-12 col-lg-12" id="divBotoesForm">
-		<a href="#">
-			<button class="btn btn-primary">
-				<span class="glyphicon glyphicon-print" style=""></span> Imprimir
-			</button>
-		</a>    
-	</div>
-</div>
 
 <%@ include file="../layout/Rodape.jsp" %>
 <%@ include file="../../../../resourses/adm/html/pesqEntidade.jsp" %>    

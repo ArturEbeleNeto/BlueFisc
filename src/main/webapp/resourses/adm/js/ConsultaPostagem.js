@@ -1,21 +1,20 @@
 function ExibeOpcoes(value, row) {       
-    Texto = ''	
-    Texto+= '<a href="'+BASE_URL+'Estoque/DetalheEstoque/'+row.idEstoqueMedicamento+'"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></a>  '
+    Texto = ''
+    Texto = '<a href="'+BASE_URL+'Postagem/Form/'+row.idPostagem+'"><span class="glyphicon glyphicon-pencil link-Editar"  id="lnkEditarPostagem"  aria-hidden="true" idPostagem="'+row.idPostagem+'"></span></a>'
+    Texto+= ' '  
+    Texto+= '<a href=""><span idEntity="'+row.idPostagem+'" nameEntity="Postagem" class="lnkExcluirRegistro glyphicon glyphicon-remove"></span></a>' 
     return Texto
 }
 
 $(function(){  		
 	
-	$("#tabEstoque").bootstrapTable({
-        clickToSelect: true,
-        selectItemName:"lista",
-        idField: "idEstoqueMedicamento",
-        url: BASE_URL + "Estoque/Listar"  
+	$("#tabPostagem").bootstrapTable({
+        url: BASE_URL + "Postagem/Listar"  
 	})	
 	 
-	$('#btnMovimentarEstoque').on('click', function(e){
+	$('#btnAdicionarPostagem').on('click', function(e){
 		e.preventDefault()                
-		window.location.replace(BASE_URL + "Estoque/MovimentarEstoque")	 		
+		window.location.replace(BASE_URL + "Postagem/Form")	 		
 	})	
 	
 	$('#btnBuscarEstoque').on('click', function(e){

@@ -91,6 +91,10 @@ public class Usuario extends BaseEntity implements UserDetails{
 	public Integer getId() {
 		return this.idUsuario;
 	}
+	public String getDescricao() {
+		return this.nome;
+	}
+	
 	public Integer getIdUsuario() {
 		return idUsuario;
 	}
