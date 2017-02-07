@@ -16,7 +16,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.bluefisc.factories.interfaces.EntityFactoryInterface;
 import br.com.bluefisc.model.components.Retorno;
+import br.com.bluefisc.model.entity.Area;
+import br.com.bluefisc.model.entity.CategoriaPostagem;
 import br.com.bluefisc.model.entity.Postagem;
+import br.com.bluefisc.model.entity.Usuario;
 import br.com.bluefisc.services.interfaces.PostagemServiceInterface;
 
 @Controller
@@ -27,6 +30,12 @@ public class PostagemController {
 	private PostagemServiceInterface postagemService;
 	@Autowired
 	private EntityFactoryInterface<Postagem> postagemFactory;
+	@Autowired
+	private EntityFactoryInterface<Usuario> usuarioFactory;
+	@Autowired
+	private EntityFactoryInterface<Area> areaFactory;
+	@Autowired
+	private EntityFactoryInterface<CategoriaPostagem> categoriaPostagemFactory;
 	@Autowired
 	private MessageSource messageSource;	
 	
@@ -60,6 +69,9 @@ public class PostagemController {
 						
 		if(result.hasErrors()) {
 		    model.addAttribute("postagem", postagem);
+		    model.addAttribute("autor", usuarioFactory.getEntity(postagem.getUsuario()));
+		    model.addAttribute("area", areaFactory.getEntity(postagem.getArea()));
+		    model.addAttribute("categoriaPostagem", categoriaPostagemFactory.getEntity(postagem.getCategoriaPostagem()));
 		    return controller+"/FormPostagem";
 	  	}				
 		

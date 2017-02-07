@@ -8,7 +8,7 @@ function ExibeOpcoes(value, row) {
 
 $(function(){  		
 	
-	$("#tabPostagem").bootstrapTable({
+	$("#tabConsultaPostagens").bootstrapTable({
         url: BASE_URL + "Postagem/Listar"  
 	})	
 	 
@@ -17,20 +17,20 @@ $(function(){
 		window.location.replace(BASE_URL + "Postagem/Form")	 		
 	})	
 	
-	$('#btnBuscarEstoque').on('click', function(e){
+	$('#btnBuscarPostagens').on('click', function(e){
 		e.preventDefault()
 		
-		var idIdoso = $('#idIdoso').val()
-		if(!idIdoso > 0){
-			idIdoso = 0
+		var idArea = $('#idArea').val()
+		if(!idArea > 0){
+			idArea = 0
 		}
 		
-		var idMedicamento = $('#idMedicamento').val()
-		if(!idMedicamento  > 0){
-			idMedicamento  = 0
+		var idCategoria = $('#idCategoria').val()
+		if(!idCategoria  > 0){
+			idCategoria  = 0
 		}
 		
-		$("#tabEstoque").bootstrapTable('refresh',{url: BASE_URL + "Estoque/ListarPorIdosoEMedicamento/"+idIdoso+"/"+idMedicamento})
+		$("#tabConsultaPostagens").bootstrapTable('refresh',{url: BASE_URL + "Postagem/ListarPorAreaECategoria/"+idArea+"/"+idCategoria})
 	})	
 	
 })

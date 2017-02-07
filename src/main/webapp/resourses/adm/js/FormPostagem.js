@@ -8,4 +8,8 @@ $(function(){
 		}
 	})
 	
+	$('#btnSalvarForm').on('click', function(e){
+		$('#formPostagem').submit()
+	})
+	
 })

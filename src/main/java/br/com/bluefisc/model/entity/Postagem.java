@@ -10,12 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import br.com.bluefisc.model.entity.BaseEntity;
-import br.com.bluefisc.model.entity.Usuario;
 
 @Entity  
 @Table(name = "postagem") 
@@ -27,6 +25,16 @@ public class Postagem extends BaseEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	private Integer idPostagem;
 
+	@NotNull
+	@ManyToOne
+	@JoinColumn(name="idArea", referencedColumnName="idArea")
+	private Area area;
+	
+	@NotNull
+	@ManyToOne
+	@JoinColumn(name="idCategoriaPostagem", referencedColumnName="idCategoriaPostagem")
+	private CategoriaPostagem categoriaPostagem;	
+	
 	@NotEmpty
 	@Column(length=250,nullable=false)
 	private String titulo;
@@ -34,7 +42,7 @@ public class Postagem extends BaseEntity {
 	@NotEmpty
 	@Column(length=500,nullable=false)
 	private String subTitulo;
-		
+			
 	private String caminhoImagem;
 	
 	@NotEmpty
@@ -53,7 +61,9 @@ public class Postagem extends BaseEntity {
 	
 	public Postagem(){};
 	public Postagem(Integer idPostagem, String titulo, String subTitulo, String caminhoImagem, String textoFormatado,
-			String textoLimpo, Usuario usuario, Calendar dataPublicacao) {
+			String textoLimpo, Usuario usuario, Calendar dataPublicacao, Area area, CategoriaPostagem categoriaPostagem) {
+		this.area = area;
+		this.categoriaPostagem = categoriaPostagem;
 		this.idPostagem = idPostagem;
 		this.titulo = titulo;
 		this.subTitulo = subTitulo;
@@ -116,5 +126,17 @@ public class Postagem extends BaseEntity {
 	}
 	public void setDataPublicacao(Calendar dataPublicacao) {
 		this.dataPublicacao = dataPublicacao;
+	}
+	public Area getArea() {
+		return area;
+	}
+	public void setArea(Area area) {
+		this.area = area;
+	}
+	public CategoriaPostagem getCategoriaPostagem() {
+		return categoriaPostagem;
+	}
+	public void setCategoriaPostagem(CategoriaPostagem categoriaPostagem) {
+		this.categoriaPostagem = categoriaPostagem;
 	}
 }

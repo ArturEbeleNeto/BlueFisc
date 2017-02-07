@@ -1,6 +1,6 @@
 <%@ include file="../layout/Cabecalho.jsp" %>
 
-<h2>Consulta de estoques</h2>
+<h2>Consulta de Postagens</h2>
 
 <div class="row">
 	<div class="col-md-12">
@@ -28,7 +28,7 @@
 									
 		    <div class="row">          
 		        <div class="col-md-12 col-lg-12">            
-		            <button id="btnBuscarEstoque" type="submit" class="btn btn-success">
+		            <button id="btnBuscarPostagens" type="submit" class="btn btn-success">
 		            	<span class="glyphicon glyphicon-random"></span>  Buscar
 		            </button>
 		        </div>	  
@@ -43,11 +43,17 @@
 <div class="row">
 	<div class="col-md-12">
 		    		
-		<table id="tabPostagem" class="table table-hover"> 						                  
+		<table id="tabConsultaPostagens" class="table table-hover"> 						                  
 			<thead>
 				<tr>
 					<th class="hidden" data-field="idPostagem">ID</th>
 								
+					<th data-field="area.descricao">
+						Área
+					</th>
+					<th data-field="categoriaPostagem.descricao">
+						Categoria
+					</th>					
 					<th data-field="titulo">
 						Título
 					</th>					
