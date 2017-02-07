@@ -28,8 +28,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 
 			http
 			.authorizeRequests()
+			
 			.antMatchers("/Adm/**").authenticated()
-			.antMatchers("/resourses/**").permitAll()
+			.antMatchers("/AreaCliente/**").authenticated()
+			
+			
+			.antMatchers("/resourses/**").permitAll()			
 			.anyRequest().permitAll()
 		    .and().formLogin().loginPage("/login").permitAll()
 		    .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll();	     
