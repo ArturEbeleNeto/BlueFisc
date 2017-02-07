@@ -1,13 +1,19 @@
 package br.com.bluefisc.model.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "area")
@@ -25,12 +31,16 @@ public class Area extends BaseEntity {
 
 	private String caminhoIcone;
 	
+	@ManyToMany (mappedBy="areas", fetch=FetchType.EAGER)
+	@JsonManagedReference
+	private List<Plano> planos;	
+	
 	public Area(){};	
-	public Area(Integer idArea, String descricao, String caminhoIcone) {
-		super();
+	public Area(Integer idArea, String descricao, String caminhoIcone, List<Plano> planos) {
 		this.idArea = idArea;
 		this.descricao = descricao;
-		this.setCaminhoIcone(caminhoIcone);
+		this.caminhoIcone = caminhoIcone;
+		this.planos = planos;
 	}
 	
 	
@@ -59,5 +69,11 @@ public class Area extends BaseEntity {
 	}
 	public void setCaminhoIcone(String caminhoIcone) {
 		this.caminhoIcone = caminhoIcone;
+	}
+	public List<Plano> getPlanos() {
+		return planos;
+	}
+	public void setPlanos(List<Plano> planos) {
+		this.planos = planos;
 	}
 }

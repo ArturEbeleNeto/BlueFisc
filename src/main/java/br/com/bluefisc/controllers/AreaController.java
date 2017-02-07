@@ -55,7 +55,6 @@ public class AreaController {
 	public String Incluir(@Valid Area area,BindingResult result, Boolean goSubForm,Model model){
 						
 		if(result.hasErrors()) {
-			System.out.println("Tem erro " + result.getAllErrors());
 		    model.addAttribute("area", area);
 		    return controller+"/FormArea";
 	  	}				

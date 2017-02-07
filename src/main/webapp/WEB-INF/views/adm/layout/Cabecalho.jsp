@@ -34,6 +34,8 @@
       
         <li><a href="<%=Base_url%>Adm">Início</a></li>
         
+        <li><a href="<%=Base_url%>Adm/Plano/Consulta">Planos</a></li>
+        
         <li><a href="<%=Base_url%>Adm/Area/Consulta">Áreas</a></li>      
         
         <li class="dropdown">
