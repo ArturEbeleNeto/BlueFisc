@@ -31,17 +31,11 @@ public class SiteController {
 		return mv;
 	}
 	
-	@RequestMapping("/AreaCliente")
-	public ModelAndView areaCliente(){
-		ModelAndView mv = new ModelAndView("site/areaCliente");
-		return mv;
-	}
-	
 	@RequestMapping("/Contato")
 	public ModelAndView contato(){
 		ModelAndView mv = new ModelAndView("site/contato");
 		return mv;
-	}				
+	}					
 	
 	@RequestMapping("/Cadastro")
 	public ModelAndView cadastro(){

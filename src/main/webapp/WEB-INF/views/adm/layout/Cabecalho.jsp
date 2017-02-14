@@ -24,7 +24,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">CONSULT</a>
+      <a class="navbar-brand" href="#">BlueFisc</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -33,6 +33,8 @@
       <ul class="nav navbar-nav">
       
         <li><a href="<%=Base_url%>Adm">Início</a></li>
+        
+        <li><a href="<%=Base_url%>Adm/Cliente/Consulta">Clientes</a></li>
         
         <li><a href="<%=Base_url%>Adm/Plano/Consulta">Planos</a></li>
         
