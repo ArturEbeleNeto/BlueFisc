@@ -15,15 +15,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.bluefisc.model.components.Retorno;
-import br.com.bluefisc.model.entity.Area;
-import br.com.bluefisc.services.interfaces.AreaServiceInterface;
+import br.com.bluefisc.model.entity.Cliente;
+import br.com.bluefisc.services.interfaces.ClienteServiceInterface;
 
 @Controller
 @RequestMapping("/Adm/Cliente")
 public class ClienteController {
 	
 	@Autowired
-	private AreaServiceInterface areaService;
+	private ClienteServiceInterface clienteService;
 
 	@Autowired
 	private MessageSource messageSource;	
@@ -36,40 +36,40 @@ public class ClienteController {
 		return controller+"/ConsultaClientes";
 	}
 	
-	@RequestMapping("/Form/{idArea}")
-	public String form(Model mv,@PathVariable("idArea") Integer idArea) {
-		Area area = areaService.findById(idArea);				
-		mv.addAttribute("area", area);				
-		return controller+"/FormArea";		
+	@RequestMapping("/Form/{idCliente}")
+	public String form(Model mv,@PathVariable("idCliente") Integer idCliente) {
+		Cliente cliente = clienteService.findById(idCliente);				
+		mv.addAttribute("cliente", cliente);				
+		return controller+"/FormCliente";		
 	}
 	
 	@RequestMapping("/Form")
 	public String formEditar(Model mv) {				
-		Area area = new Area();	
-		mv.addAttribute("area", area);
-		return controller+"/FormArea";		
+		Cliente cliente = new Cliente();	
+		mv.addAttribute("cliente", cliente);
+		return controller+"/FormCliente";		
 	}
 	
 		  
 	@RequestMapping("/Form/Processar")
-	public String Incluir(@Valid Area area,BindingResult result, Boolean goSubForm,Model model){
+	public String Incluir(@Valid Cliente cliente,BindingResult result, Boolean goSubForm,Model model){
 						
 		if(result.hasErrors()) {
-		    model.addAttribute("area", area);
-		    return controller+"/FormArea";
+		    model.addAttribute("cliente", cliente);
+		    return controller+"/FormCliente";
 	  	}				
 		
-		if(areaService.findById(area.getIdArea()) == null){		
-			areaService.save(area);
+		if(clienteService.findById(cliente.getIdCliente()) == null){		
+			clienteService.save(cliente);
 		}else{		
-			areaService.update(area);
+			clienteService.update(cliente);
 		}				
 		
 		String retorno = "";
 		if(goSubForm == null){
-			retorno = "redirect:/Adm/Area/Consulta";			
+			retorno = "redirect:/Adm/Cliente/Consulta";			
 		}else{
-			retorno = "redirect:/Adm/CategoriaPostagemArea/Form/" + area.getIdArea();
+			retorno = "redirect:/Adm/CategoriaPostagemCliente/Form/" + cliente.getIdCliente();
 		}
 
 		return retorno;			
@@ -79,9 +79,9 @@ public class ClienteController {
 	@ResponseBody
 	public Retorno Excluir(@PathVariable("idEntity") Integer idEntity){
 		Retorno retorno = new Retorno();		
-		Area entity = areaService.findById(idEntity);
+		Cliente entity = clienteService.findById(idEntity);
 		try{	
-			areaService.delete(entity);
+			clienteService.delete(entity);
 		}catch (Exception e) {
 			retorno.setErroGeral(messageSource.getMessage("erros.exclusao.jaReferenciado", new Object[]{}, Locale.getDefault()));
 			return retorno;
@@ -91,14 +91,14 @@ public class ClienteController {
 	
 	@RequestMapping("/Listar")
 	@ResponseBody
-	public List<Area> Listar(){
-		return areaService.findAll();		  
+	public List<Cliente> Listar(){
+		return clienteService.findAll();		  
 	}	
 
-	@RequestMapping("/getArea/{idArea}")
+	@RequestMapping("/getCliente/{idCliente}")
 	@ResponseBody
-	public Area getArea(@PathVariable("idArea") Integer idArea){
-		return areaService.findById(idArea);
+	public Cliente getCliente(@PathVariable("idCliente") Integer idCliente){
+		return clienteService.findById(idCliente);
 	}	
 	
 }

@@ -4,6 +4,8 @@ import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,6 +17,7 @@ import javax.validation.constraints.Past;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import br.com.bluefisc.model.enums.SituacaoCliente;
 import br.com.bluefisc.model.validators.ValidaCPF;
 
 @Entity
@@ -33,6 +36,9 @@ public class Cliente extends BaseEntity{
 	private Plano plano;
 	
 	public Integer sequencia;	
+	
+	@Enumerated(EnumType.STRING)
+	private SituacaoCliente situacao;
 	
 	@NotBlank(message = "O campo nome não pode estar vazio")
 	private String nome;
@@ -80,7 +86,7 @@ public class Cliente extends BaseEntity{
 	public Cliente(Integer idCliente, String nome, String sobrenome, String numeroCpf, String numeroRg,
 			Calendar dataNascimento, Integer idade, String sexo, String email, String receberEmailFaltaMedicamento,
 			String telefone, String celular, String rua, Integer numeroResidencial, String bairro, String complemento,
-			String municipio, String estado, String cep, Plano plano, Integer sequencia) {
+			String municipio, String estado, String cep, Plano plano, Integer sequencia, SituacaoCliente situacao) {
 		this.idCliente = idCliente;
 		this.sequencia = sequencia;
 		this.nome = nome;
@@ -101,6 +107,7 @@ public class Cliente extends BaseEntity{
 		this.estado = estado;
 		this.cep = cep;
 		this.plano = plano;
+		this.situacao = situacao;
 	}
 
 
@@ -230,5 +237,11 @@ public class Cliente extends BaseEntity{
 	}
 	public void setPlano(Plano plano) {
 		this.plano = plano;
+	}
+	public SituacaoCliente getSituacao() {
+		return situacao;
+	}
+	public void setSituacao(SituacaoCliente situacao) {
+		this.situacao = situacao;
 	}
 }
