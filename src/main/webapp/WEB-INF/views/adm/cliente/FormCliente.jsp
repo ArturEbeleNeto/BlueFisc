@@ -10,6 +10,8 @@
 
 	<input name="idCliente" type="hidden" value="${cliente.idCliente}">
 	<input name="sequencia" type="hidden" value="${cliente.sequencia}">
+	
+	<input name="idUsuario" type="hidden" value="${cliente.usuario.idUsuario}">
 
 
 		<div class="row">
@@ -79,6 +81,35 @@
                                         
 		</div> <!-- Row -->
                 
+		<div class="row">		
+			<div class="form-group col-lg-10 col-md-10">
+				<label for="basic-url">Plano:</label>
+				<div class="input-group">				  
+				  <input class="form-control idPesqEntidade" required="required" idPesqEntidade="Plano" nomeEntidade="Plano" name="plano.idPlano" aria-describedby="basic-addon3" id="idPlano"  value="${cliente.plano.idPlano}">				  
+				  <span class="input-group-addon descricaoPesqEntidade" idPesqEntidade="Plano">${cliente.plano.descricao}</span>				  		
+				</div>		
+				<span class="help-block"><form:errors path="plano" /></span>			
+			</div>							
+		</div>		                
+		
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<h3>Acesso</h3>		
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="form-group col-lg-2 col-md-3 col-sm-4">
+				<label for="txtSenha">Senha:</label>
+				<input name="usuario.senha" value="${cliente.usuario.senha}" type="password" class="form-control" id="txtSenha">
+				<span class="help-block"><form:errors path="usuario" /></span>
+			</div>
+			<div class="form-group col-lg-2 col-md-2">
+				<label for="txtConfirmacaoSenha">Confimação da senha:</label>
+				<input name="usuario.confirmacaoSenha" value="${cliente.usuario.confirmacaoSenha}" type="password" class="form-control" id="txtConfirmacaoSenha">
+				<span class="help-block"><form:errors path="usuario" /></span>
+			</div>
+		</div>
 						
 	    <div class="row">        
 	        <div class="col-md-12 col-lg-12" id="divBotoesForm">            
@@ -90,4 +121,5 @@
           
 </form:form>
             
-<%@ include file="../layout/Rodape.jsp" %>            
+<%@ include file="../layout/Rodape.jsp" %>
+<%@ include file="../../../../resourses/adm/html/pesqEntidade.jsp" %>    

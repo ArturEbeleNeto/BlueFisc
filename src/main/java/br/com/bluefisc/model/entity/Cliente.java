@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Past;
 
@@ -80,13 +81,17 @@ public class Cliente extends BaseEntity{
 	private String estado;
 	
 	private String cep;
+	
+	@OneToOne
+	@JoinColumn(name="idUsuario", referencedColumnName="idUsuario")
+	private Usuario usuario;
 
 	
 	public Cliente() {}
 	public Cliente(Integer idCliente, String nome, String sobrenome, String numeroCpf, String numeroRg,
 			Calendar dataNascimento, Integer idade, String sexo, String email, String receberEmailFaltaMedicamento,
 			String telefone, String celular, String rua, Integer numeroResidencial, String bairro, String complemento,
-			String municipio, String estado, String cep, Plano plano, Integer sequencia, SituacaoCliente situacao) {
+			String municipio, String estado, String cep, Plano plano, Integer sequencia, SituacaoCliente situacao, Usuario usuario) {
 		this.idCliente = idCliente;
 		this.sequencia = sequencia;
 		this.nome = nome;
@@ -108,6 +113,7 @@ public class Cliente extends BaseEntity{
 		this.cep = cep;
 		this.plano = plano;
 		this.situacao = situacao;
+		this.usuario = usuario;
 	}
 
 
@@ -243,5 +249,11 @@ public class Cliente extends BaseEntity{
 	}
 	public void setSituacao(SituacaoCliente situacao) {
 		this.situacao = situacao;
+	}
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 }

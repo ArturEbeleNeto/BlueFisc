@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.bluefisc.model.components.Retorno;
 import br.com.bluefisc.model.entity.Cliente;
+import br.com.bluefisc.model.entity.Usuario;
 import br.com.bluefisc.services.interfaces.ClienteServiceInterface;
+import br.com.bluefisc.services.interfaces.UsuarioServiceInterface;
 
 @Controller
 @RequestMapping("/Adm/Cliente")
@@ -24,6 +26,8 @@ public class ClienteController {
 	
 	@Autowired
 	private ClienteServiceInterface clienteService;
+	@Autowired
+	private UsuarioServiceInterface usuarioService;	
 
 	@Autowired
 	private MessageSource messageSource;	
@@ -52,12 +56,20 @@ public class ClienteController {
 	
 		  
 	@RequestMapping("/Form/Processar")
-	public String Incluir(@Valid Cliente cliente,BindingResult result, Boolean goSubForm,Model model){
+	public String Incluir(@Valid Cliente cliente,@Valid Usuario usuario, BindingResult result, Boolean goSubForm,Model model){
 						
 		if(result.hasErrors()) {
+			System.out.println(result.getAllErrors());
 		    model.addAttribute("cliente", cliente);
 		    return controller+"/FormCliente";
 	  	}				
+		
+		if(usuarioService.findById(usuario.getIdUsuario()) == null){		
+			usuario = usuarioService.save(usuario);
+		}else{		
+			usuarioService.update(usuario);
+		}			
+		cliente.setUsuario(usuario);
 		
 		if(clienteService.findById(cliente.getIdCliente()) == null){		
 			clienteService.save(cliente);
