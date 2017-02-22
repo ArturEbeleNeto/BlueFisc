@@ -47,14 +47,15 @@ public class UsuarioService implements UsuarioServiceInterface, UserDetailsServi
 	@Override
 	public void update(Usuario entity) {
 		
+		Usuario usuario2 = usuarioDao.findById(entity.getId());
 		//Se não foi digitado uma nova senha na tela, mantem a mesma
 		if(entity.getSenha().isEmpty()){
-			Usuario usuario2 = usuarioDao.findById(entity.getId());
 			entity.setSenha(usuario2.getSenha());
 		}else{
 			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 			entity.setSenha(encoder.encode(entity.getSenha()));
 		}				
+		entity.setPermissoes(usuario2.getPermissoes());
 		usuarioDao.update(entity);
 	}
 
