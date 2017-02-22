@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.bluefisc.model.dao.interfaces.PostagemDaoInterface;
+import br.com.bluefisc.model.entity.Area;
+import br.com.bluefisc.model.entity.CategoriaPostagem;
 import br.com.bluefisc.model.entity.Postagem;
 import br.com.bluefisc.services.interfaces.PostagemServiceInterface;
 
@@ -40,5 +42,10 @@ public class PostagemService implements PostagemServiceInterface {
 	@Override
 	public void delete(Postagem entity) {
 		postagemDao.delete(entity);
+	}
+
+	@Override
+	public List<Postagem> listarPorAreaECategoria(Area area, CategoriaPostagem categoriaPostagem) {
+		return postagemDao.listarPorAreaECategoria(area, categoriaPostagem);
 	}
 }

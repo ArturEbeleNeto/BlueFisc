@@ -38,3 +38,10 @@ body {
 	background-color: #563d7c;
 	cursor: pointer;
 }
+
+
+
+.chamaPostagem:hover {
+	background-color: #f0f0f0;
+	cursor: pointer;
+}

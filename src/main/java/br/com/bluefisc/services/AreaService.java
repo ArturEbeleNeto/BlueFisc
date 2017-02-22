@@ -17,6 +17,7 @@ public class AreaService implements AreaServiceInterface {
 	@Autowired
 	private AreaDaoInterface areaDao;
 
+
 	@Override
 	public List<Area> findAll() {
 		return areaDao.findAll();
@@ -40,5 +41,10 @@ public class AreaService implements AreaServiceInterface {
 	@Override
 	public void delete(Area entity) {
 		areaDao.delete(entity);
+	}
+
+	@Override
+	public List<Area> listarPorPlanoDoCliente() {
+		return areaDao.listarPorPlanoDoCliente();
 	}
 }

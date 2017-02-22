@@ -16,7 +16,10 @@ jQuery(document).ready(function($) {
 	$('#tabConsultas').bootstrapTable()
 	
 	$('.celula').on('click', function(e){
-		window.open($(this).attr	('href'))
+		window.location.replace($(this).attr('href'))
 	})
 	
+	$('.chamaPostagem').on('click', function(e){
+		window.location.replace($(this).attr('href'))
+	})
 });

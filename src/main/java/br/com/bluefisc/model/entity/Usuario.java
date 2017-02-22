@@ -61,6 +61,9 @@ public class Usuario extends BaseEntity implements UserDetails{
 		this.cliente = cliente;
 	}
 	
+	public String getNome(){
+		return cliente.getNome();
+	}
 	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {

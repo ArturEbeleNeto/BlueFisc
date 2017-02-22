@@ -19,65 +19,14 @@
 <div class="row">
 	<div class="col-lg-12 col-md-12 col-sm-12" >
 	
-		<div class="celula col-lg-2 col-md-4 col-sm-6 col-xs-12" href="<%=Base_url%>Idoso/Consulta">
-			<span class="glyphicon glyphicon-search" aria-hidden=true></span>
-			<span class=glyphicon-class>Consultar Idosos</span>
-		</div>	
-	
-		<div class="celula col-lg-2 col-md-4 col-sm-6 col-xs-12" href="<%=Base_url%>Idoso/DadosPessoais">
-			<span class="glyphicon glyphicon-plus" aria-hidden=true></span>
-			<span class=glyphicon-class>Cadastrar Idoso</span>
-		</div>
+		<c:forEach items="${areas}" var="area">
 		
-		<div class="celula col-lg-2 col-md-4 col-sm-6 col-xs-12"  href="<%=Base_url%>Medicamento/Consulta">
-			<span class="glyphicon glyphicon-search" aria-hidden=true></span>
-			<span class=glyphicon-class>Consultar Medicamentos</span>
-		</div>
-			
-		<div class="celula col-lg-2 col-md-4 col-sm-6 col-xs-12" href="<%=Base_url%>Medicamento/Form">
-			<span class="glyphicon glyphicon-plus" aria-hidden=true></span>
-			<span class=glyphicon-class>Cadastrar Medicamento</span>
-		</div>
-			
-		<div class="celula col-lg-2 col-md-4 col-sm-6 col-xs-12" href="<%=Base_url%>Estoque/Consulta">
-			<span class="glyphicon glyphicon-search" aria-hidden=true></span>
-			<span class=glyphicon-class>Consultar Estoque</span>
-		</div>
-		
-		<div class="celula col-lg-2 col-md-4 col-sm-6 col-xs-12" href="<%=Base_url%>Estoque/MovimentarEstoque">
-			<span class="glyphicon glyphicon-sort" aria-hidden=true></span>
-			<span class=glyphicon-class>Movimentação de estoque</span>
-		</div>
-		
-	 	<div class="celula col-lg-2 col-md-4 col-sm-6 col-xs-12" href="<%=Base_url%>Administracao/Consulta">
-	 		<span class="glyphicon glyphicon-check" aria-hidden=true></span> 
-			<span class=glyphicon-class>Administrar Medicamentos</span>
-		</div>
-		
-		<div class="celula col-lg-2 col-md-4 col-sm-6 col-xs-12" href="<%=Base_url%>Administracao/Programar">  
-			<span class="glyphicon glyphicon-calendar" aria-hidden=true></span>
-			<span class=glyphicon-class>Programar Administrações</span>
-		</div>
-			
-			<div class="celula col-lg-2 col-md-4 col-sm-6 col-xs-12" href="<%=Base_url%>Parcela/Consulta">
+			<div class="celula col-lg-2 col-md-4 col-sm-6 col-xs-12" href="<%=Base_url%>AreaCliente/Area/${area.idArea}">
 				<span class="glyphicon glyphicon-search" aria-hidden=true></span>
-				<span class=glyphicon-class>Consultar Parcelas</span>
+				<span class=glyphicon-class>${area.descricao}</span>
 			</div>
-			
-			<div class="celula col-lg-2 col-md-4 col-sm-6 col-xs-12" href="<%=Base_url%>Parcela/Gerar">
-				<span class="glyphicon glyphicon-usd" aria-hidden=true></span>
-				<span class=glyphicon-class>Gerar Parcelas</span>
-			</div>
-		
-		<div class="celula col-lg-2 col-md-4 col-sm-6 col-xs-12" href="<%=Base_url%>Usuario/AlterarSenha">
-			<span class="glyphicon glyphicon-refresh" aria-hidden=true></span>
-			<span class=glyphicon-class>Alterar Senha</span>
-		</div>
-		
-		<div class="celula col-lg-2 col-md-4 col-sm-6 col-xs-12" href="<%=Base_url%>Enfermeiro/Consulta">
-			<span class="glyphicon glyphicon-search" aria-hidden=true></span>
-			<span class=glyphicon-class>Consultar Enfermeiras</span>
-		</div>						
+					
+		</c:forEach>						
 			     
 	</div>
 </div>

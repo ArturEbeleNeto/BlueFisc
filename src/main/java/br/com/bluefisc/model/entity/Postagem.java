@@ -15,6 +15,8 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity  
 @Table(name = "postagem") 
 public class Postagem extends BaseEntity {
@@ -31,6 +33,7 @@ public class Postagem extends BaseEntity {
 	private Area area;
 	
 	@NotNull
+	@JsonManagedReference
 	@ManyToOne
 	@JoinColumn(name="idCategoriaPostagem", referencedColumnName="idCategoriaPostagem")
 	private CategoriaPostagem categoriaPostagem;	

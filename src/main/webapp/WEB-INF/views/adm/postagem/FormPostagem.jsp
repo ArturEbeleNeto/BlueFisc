@@ -10,7 +10,7 @@
 									
 			<div class="form-group col-lg-6 col-md-6">
 				<label for="basic-url">Área:</label>
-				<div class="input-group">				  
+				<div class="input-group">
 				  <input name="area.idArea" autofocus="autofocus" value="${postagem.area.idArea}" class="form-control idPesqEntidade" idPesqEntidade="Area" nomeEntidade="Area" aria-describedby="basic-addon3" id="idArea">				  
 				  <span class="input-group-addon descricaoPesqEntidade" idPesqEntidade="Area" nomeEntidade="Area">${postagem.area.descricao}</span>				  		
 				</div>		

@@ -1,5 +1,13 @@
 package br.com.bluefisc.services.interfaces;
 
-import br.com.bluefisc.model.dao.interfaces.AreaDaoInterface;
+import java.util.List;
 
-public interface AreaServiceInterface extends AreaDaoInterface {}
+import br.com.bluefisc.model.dao.interfaces.AreaDaoInterface;
+import br.com.bluefisc.model.entity.Area;
+import br.com.bluefisc.model.entity.Cliente;
+
+public interface AreaServiceInterface extends AreaDaoInterface {
+	
+	
+	
+}
