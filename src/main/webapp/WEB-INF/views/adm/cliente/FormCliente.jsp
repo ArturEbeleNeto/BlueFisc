@@ -11,7 +11,7 @@
 	<input name="idCliente" type="hidden" value="${cliente.idCliente}">
 	<input name="sequencia" type="hidden" value="${cliente.sequencia}">
 	
-	<input name="idUsuario" type="hidden" value="${cliente.usuario.idUsuario}">
+	<input name="usuario.idUsuario" type="hidden" value="${cliente.usuario.idUsuario}">
 
 
 		<div class="row">
@@ -94,20 +94,27 @@
 		
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-				<h3>Acesso</h3>		
+				<h3 class="page-header">Acesso</h3>		
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="form-group col-lg-2 col-md-3 col-sm-4">
+				<label for="txtUsuario">Usuário:</label>
+				<input name="usuario.usuario" value="${cliente.usuario.usuario}" type="text" class="form-control" id="txtUsuario">
+				<span class="help-block"><form:errors path="usuario.usuario" /></span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-lg-2 col-md-3 col-sm-4">
 				<label for="txtSenha">Senha:</label>
 				<input name="usuario.senha" value="${cliente.usuario.senha}" type="password" class="form-control" id="txtSenha">
-				<span class="help-block"><form:errors path="usuario" /></span>
+				<span class="help-block"><form:errors path="usuario.senha" /></span>
 			</div>
 			<div class="form-group col-lg-2 col-md-2">
 				<label for="txtConfirmacaoSenha">Confimação da senha:</label>
 				<input name="usuario.confirmacaoSenha" value="${cliente.usuario.confirmacaoSenha}" type="password" class="form-control" id="txtConfirmacaoSenha">
-				<span class="help-block"><form:errors path="usuario" /></span>
+				<span class="help-block"><form:errors path="usuario.confirmacaoSenha" /></span>
 			</div>
 		</div>
 						

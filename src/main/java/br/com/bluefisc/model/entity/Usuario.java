@@ -21,6 +21,8 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "usuario")	
 public class Usuario extends BaseEntity implements UserDetails{
@@ -41,6 +43,7 @@ public class Usuario extends BaseEntity implements UserDetails{
 	@Transient
 	private String confirmacaoSenha;
 	
+	@JsonBackReference
 	@OneToOne
 	@JoinColumn(name="idCliente", referencedColumnName="idCliente")
 	private Cliente cliente;

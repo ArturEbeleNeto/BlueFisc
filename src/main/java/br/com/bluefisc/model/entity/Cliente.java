@@ -2,6 +2,7 @@ package br.com.bluefisc.model.entity;
 
 import java.util.Calendar;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -17,6 +18,8 @@ import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import br.com.bluefisc.model.enums.SituacaoCliente;
 import br.com.bluefisc.model.validators.ValidaCPF;
@@ -82,7 +85,8 @@ public class Cliente extends BaseEntity{
 	
 	private String cep;
 	
-	@OneToOne
+	@JsonManagedReference
+	@OneToOne(cascade=CascadeType.REMOVE)
 	@JoinColumn(name="idUsuario", referencedColumnName="idUsuario")
 	private Usuario usuario;
 

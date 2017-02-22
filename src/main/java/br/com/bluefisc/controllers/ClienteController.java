@@ -18,7 +18,6 @@ import br.com.bluefisc.model.components.Retorno;
 import br.com.bluefisc.model.entity.Cliente;
 import br.com.bluefisc.model.entity.Usuario;
 import br.com.bluefisc.services.interfaces.ClienteServiceInterface;
-import br.com.bluefisc.services.interfaces.UsuarioServiceInterface;
 
 @Controller
 @RequestMapping("/Adm/Cliente")
@@ -26,8 +25,6 @@ public class ClienteController {
 	
 	@Autowired
 	private ClienteServiceInterface clienteService;
-	@Autowired
-	private UsuarioServiceInterface usuarioService;	
 
 	@Autowired
 	private MessageSource messageSource;	
@@ -42,7 +39,13 @@ public class ClienteController {
 	
 	@RequestMapping("/Form/{idCliente}")
 	public String form(Model mv,@PathVariable("idCliente") Integer idCliente) {
-		Cliente cliente = clienteService.findById(idCliente);				
+		Cliente cliente = clienteService.findById(idCliente);
+		
+		Usuario usuario = cliente.getUsuario();
+		usuario.setSenha("");
+		usuario.setConfirmacaoSenha("");
+		cliente.setUsuario(usuario);
+		
 		mv.addAttribute("cliente", cliente);				
 		return controller+"/FormCliente";		
 	}
@@ -56,20 +59,30 @@ public class ClienteController {
 	
 		  
 	@RequestMapping("/Form/Processar")
-	public String Incluir(@Valid Cliente cliente,@Valid Usuario usuario, BindingResult result, Boolean goSubForm,Model model){
-						
-		if(result.hasErrors()) {
-			System.out.println(result.getAllErrors());
-		    model.addAttribute("cliente", cliente);
-		    return controller+"/FormCliente";
-	  	}				
+	public String Incluir(@Valid Cliente cliente, BindingResult result,Model model){
+			
+		model.addAttribute("cliente", cliente);
 		
-		if(usuarioService.findById(usuario.getIdUsuario()) == null){		
-			usuario = usuarioService.save(usuario);
-		}else{		
-			usuarioService.update(usuario);
-		}			
-		cliente.setUsuario(usuario);
+		Usuario usuario = cliente.getUsuario();
+		if(usuario.getUsuario().isEmpty()){
+			result.rejectValue("usuario.usuario", "", "Campo obrigatório");
+		}else{
+			if(usuario.getUsuario().length() < 5){
+				result.rejectValue("usuario.usuario", "", "O usuário deve conter no mínimo 5 caracteres");
+			}
+		}
+		if(usuario.getId() == null){
+			if(usuario.getSenha().isEmpty()){			
+				result.rejectValue("usuario.senha", "", "Senha obrigatória");
+			}
+		}		
+		if( ! usuario.getSenha().equals(usuario.getConfirmacaoSenha())){
+			result.rejectValue("usuario.confirmacaoSenha", "", "As senhas não conferem");
+		}
+		
+		if(result.hasErrors()) {    
+		    return controller+"/FormCliente";
+	  	}	
 		
 		if(clienteService.findById(cliente.getIdCliente()) == null){		
 			clienteService.save(cliente);
@@ -77,14 +90,7 @@ public class ClienteController {
 			clienteService.update(cliente);
 		}				
 		
-		String retorno = "";
-		if(goSubForm == null){
-			retorno = "redirect:/Adm/Cliente/Consulta";			
-		}else{
-			retorno = "redirect:/Adm/CategoriaPostagemCliente/Form/" + cliente.getIdCliente();
-		}
-
-		return retorno;			
+		return "redirect:/Adm/Cliente/Consulta";			
 	}
 	
  	@RequestMapping("/Excluir/{idEntity}")
